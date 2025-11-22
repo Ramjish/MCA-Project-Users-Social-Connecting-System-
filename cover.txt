@@ -1,0 +1,110 @@
+public function coverPic()
+						{
+							$id=$_SESSION['id'];
+							$query="select accounter_cover_photo from accounter_details where accounter_id='$id'";
+
+							$runcoverpic=mysqli_query($this->con,$query);
+							$row=mysqli_fetch_row($runcoverpic);
+
+
+							?>
+
+							<div class="w3-display-container" style="padding-left: 0px;padding-right: 0px;background-color: red;">
+								<img src="coverPic/<?= $row[0]?>" name="img" width="100%" style="max-height: 300px;">
+								<div class="w3-display-topright w3-red w3-padding-4 cover"><a href="#"><i class="fa fa-edit" style="font-size: 25px;color: red;" title="update cover photo"></i></a></div>
+								
+								<?php
+									$query="select accounter_gender from accounter where accounter_id=$id";
+
+									$runprofilePic=mysqli_query($this->con,$query);
+
+									$row=mysqli_fetch_row($runprofilePic);
+
+									if($row[0]=="male")
+									{
+										$query="select accounter_dp from accounter_details where accounter_id=$id";
+
+										$runMale=mysqli_query($this->con,$query);
+
+										$fetch=mysqli_fetch_row($runMale);
+
+										if($fetch[0]!=null)
+										{
+											$query="select accounter_dp,accounter_first_name,accounter_last_name from accounter a,accounter_details ad where a.accounter_id=ad.accounter_id and a.accounter_id=$id";
+											$run=mysqli_query($this->con,$query);
+											$row=mysqli_fetch_row($run);
+											?>
+
+												<div class="w3-display-bottomleft profile" style="padding-left: 10px;padding-bottom: 5px;">
+													<img src="propic/<?= $row[0]?>" width="20%;" class="w3-circle w3-border w3-hide-large">
+													<img src="propic/<?= $row[0]?>" width="20%" class="w3-circle w3-border w3-hide-small w3-hide-medium">
+												</div>
+												<div class="w3-display-bottomright" style="text-transform: capitalize;padding-right: 30px;color: white;">
+													<h1><?= "&nbsp;&nbsp;".$row[1]."<br>".$row[2] ?></h1>
+												</div>
+											<?php
+											
+											
+										}
+										else
+										{
+											?>
+											<div class="w3-display-bottomleft profile" style="padding-left: 10px;padding-bottom: 5px;">
+												<img src="propic/male1.png" width="20%;" class="w3-circle w3-border w3-hide-large">
+												<img src="propic/male1.png" width="40%;" class="w3-circle w3-border w3-hide-small">
+											</div>
+											<div class="w3-display-bottomright" style="text-transform: capitalize;padding-right: 30px;color: white;">
+													<h1><?= "&nbsp;&nbsp;".$row[1]."<br>".$row[2] ?></h1>
+												</div>
+											<?php
+											
+										}
+									}
+									else if($row[0]=="female")
+									{
+										$query="select accounter_dp from accounter_details where accounter_id=$id";
+
+										$runMale=mysqli_query($this->con,$query);
+
+										$fetch=mysqli_fetch_row($runMale);
+
+										if($fetch[0]!=null)
+										{
+											$query="select accounter_dp,accounter_first_name,accounter_last_name from accounter a,accounter_details ad where a.accounter_id=ad.accounter_id and a.accounter_id=$id";
+											$run=mysqli_query($this->con,$query);
+											$row=mysqli_fetch_row($run);
+											?>
+
+												<div class="w3-display-bottomleft profile" style="padding-left: 10px;padding-bottom: 5px;">
+													<img src="propic/<?= $row[0]?>" width="20%;" class="w3-circle w3-border w3-hide-large">
+													<img src="propic/<?= $row[0]?>" width="20%" class="w3-circle w3-border w3-hide-small w3-hide-medium">
+												</div>
+												<div class="w3-display-bottomright" style="text-transform: capitalize;padding-right: 30px;color: white;">
+													<h1><?= "&nbsp;&nbsp;".$row[1]."<br>".$row[2] ?></h1>
+												</div>
+											<?php
+											
+											
+										}
+
+										else
+										{
+											?>
+											<div class="w3-display-bottomleft profile" style="padding-left: 10px;padding-bottom: 5px;">
+												<img src="propic/female.png" width="20%;" class="w3-circle w3-border w3-hide-large">
+												<img src="propic/female.png" height="100px" width="100px" class="w3-circle w3-border w3-hide-small">
+											</div>
+											<div class="w3-display-bottomright" style="text-transform: capitalize;padding-right: 30px;color: white;">
+													<h1><?= "&nbsp;&nbsp;".$row[1]."<br>".$row[2] ?></h1>
+												</div>
+											<?php
+											
+										}
+									}
+
+								?>
+
+
+							</div>
+							<?php
+						}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			
+			#mycan
+			{
+				border:1px solid black;
+			}
+
+
+	</style>
+
+</head>
+<body>
+
+
+<canvas id="mycan" height="400px" width="800px">
+	
+</canvas>
+<script type="text/javascript">
+	
+		var can,ctx;
+		var data=[30,50,70,20,100,250,54,67,100];
+		var years=[1995,1996,1997,1998,1999,2000,2001,2002,2003];
+		var color=["red","green","blue"];
+		var x=50;
+		var y=300;
+		var cnt=0;
+		var gridY=30;
+		var dataaxis=30*10;
+		window.onload=function()
+		{
+			can=document.getElementById('mycan');
+			ctx=can.getContext('2d');
+
+
+			
+			// ctx.lineWidth="30";
+
+			for(var i=0;i<=9;i++)
+			{
+				ctx.beginPath();
+				ctx.strokeStyle="grey";
+				ctx.moveTo(0,gridY);
+				ctx.fillText(dataaxis-30,0,gridY);
+				ctx.lineTo(800,gridY);
+				dataaxis=dataaxis-30;
+				gridY=gridY+30;
+				ctx.stroke();
+				ctx.closePath();
+				
+
+				
+			}
+			
+			
+
+			ctx.moveTo(0,300);
+			for(var i=0;i<data.length;i++)
+			{
+				// ctx.moveTo(x,y);
+				ctx.strokeStyle="blue";
+				ctx.lineTo(x,y-data[i]);
+				ctx.fillStyle="red";
+				ctx.fillRect(x-5,(y-data[i])-5,10,10);
+				ctx.font="15px arial";
+				ctx.fillText(years[i],x-12,320);
+				ctx.stroke();
+				x=x+80;
+				
+			}
+			
+			
+			
+			
+
+
+
+		}
+
+
+
+
+</script>
+
+
+</body>
+</html>

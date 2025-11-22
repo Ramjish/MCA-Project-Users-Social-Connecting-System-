@@ -1,0 +1,18 @@
+  .p
+		{
+			border-right: 5px solid #ccc;
+		}
+
+		.p p
+		{
+			padding-bottom: 10px;
+			padding-top: 5px;
+			border-bottom: 1px solid #ccc;
+			
+		}
+
+		.p a
+		{
+			text-decoration: none;
+			color: black;
+		}

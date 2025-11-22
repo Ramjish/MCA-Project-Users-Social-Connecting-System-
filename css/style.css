@@ -1,0 +1,25 @@
+.p
+{
+	border-right: 5px solid #ccc;
+}
+
+.p p
+{
+	padding-bottom: 10px;
+	padding-top: 5px;
+	border-bottom: 1px solid #ccc;
+	
+}
+
+.p a
+{
+	text-decoration: none;
+	color: black;
+}
+
+/*.p a:hover
+{
+	transform: scale(1.5,1.5);
+	color: green;
+	font-size: 20px;
+}*/
